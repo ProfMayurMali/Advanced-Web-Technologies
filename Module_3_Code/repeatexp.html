@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>ng-repeat Directive Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    angular.module('myApp', [])
+    .controller('MyController', ['$scope', function($scope) {
+      $scope.items = ['Apple', 'Banana', 'Orange', 'Mango'];
+    }]);
+  </script>
+</head>
+<body ng-controller="MyController">
+  <h1>ng-repeat Directive Example</h1>
+  <ul>
+    <li ng-repeat="item in items">{{ item }} {{ item }}</li>
+    <li>PineApple</li>
+  </ul>
+</body>
+</html>

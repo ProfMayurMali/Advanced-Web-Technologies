@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>ng-bind-html Directive Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.min.js"></script>
+</head>
+<body>
+  <div ng-controller="MyController">
+    <h1>ng-bind-html Directive Example</h1>
+    <p ng-bind-html="htmlContent"></p>
+  </div>
+
+  <script>
+    angular.module('myApp', ['ngSanitize']) // Add ngSanitize as a dependency
+    .controller('MyController', ['$scope', function($scope) {
+      $scope.htmlContent = '<strong>Hello</strong>, <em>world</em>!'; // Assigning HTML content to the scope variable
+    }]);
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Custom Directive Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        // Define the AngularJS module
+        var app = angular.module('myApp', []);
+
+        // Define a custom directive named 'customDirective'
+        app.directive('customDirective', function() {
+            return {
+                // Restrict the directive to be used as an element
+                restrict: 'E',
+                // Define the template for the directive
+                template: '<div style="background-color: lightblue; padding: 10px;">This is a custom directive!</div>'
+            };
+        });
+    </script>
+</head>
+<body>
+    <!-- Use the custom directive 'custom-directive' -->
+    <custom-directive></custom-directive>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>ng-model Directive Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="MyController">
+    <h1>ng-model Directive Example</h1>
+    <input type="text" ng-model="name" placeholder="Enter your name">
+    <p>Hello, {{ name }}!</p>
+  </div>
+
+  <script>
+    angular.module('myApp', [])
+    .controller('MyController', ['$scope', function($scope) {
+      $scope.name = ''; // Initialize name variable
+    }]);
+  </script>
+</body>
+</html>

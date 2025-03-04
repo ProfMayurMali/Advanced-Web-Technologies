@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Filters Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myController', function($scope) {
+            $scope.originalText = 'hello world';
+            $scope.number = 123.4567;
+            $scope.date = new Date('2024-03-26');
+            $scope.array = ['apple', 'banana', 'cherry'];
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <!-- Uppercase filter -->
+        <p>Uppercase: {{ originalText | uppercase }}</p>
+
+        <!-- Lowercase filter -->
+        <p>Lowercase: {{ originalText | lowercase }}</p>
+
+        <!-- Currency filter -->
+        <p>Currency: {{ number | currency }}</p>
+
+        <!-- Number filter -->
+        <p>Number: {{ number | number }}</p>
+
+        <!-- Date filter -->
+        <p>Date: {{ date | date:'fullDate' }}</p>
+
+        <!-- JSON filter -->
+        <p>Array: {{ array | json }}</p>
+    </div>
+</body>
+</html>
