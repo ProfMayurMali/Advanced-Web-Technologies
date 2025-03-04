@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Directives Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .highlight { color: red; font-weight: bold; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="myController">
+        <h2>AngularJS Directives Demo</h2>
+
+        <!-- ng-model, ng-bind -->
+        <label>Enter your name: </label>
+        <input type="text" ng-model="name">
+        <p>Your name is: <span ng-bind="name"></span></p>
+
+        <!-- ng-init, ng-show, ng-hide -->
+        <button ng-click="toggleMessage()">Toggle Message</button>
+        <p ng-show="isVisible">This message is shown using <b>ng-show</b>.</p>
+        <p ng-hide="isVisible">This message is hidden using <b>ng-hide</b>.</p>
+
+        <!-- ng-if -->
+        <p ng-if="isVisible">This message is conditionally rendered using <b>ng-if</b>.</p>
+
+        <!-- ng-repeat -->
+        <h3>List of Items:</h3>
+        <ul>
+            <li ng-repeat="item in items">{{ $index + 1 }}. {{ item }}</li>
+        </ul>
+
+        <input type="text" ng-model="newItem" placeholder="Add new item">
+        <button ng-click="addItem()">Add Item</button>
+
+        <!-- ng-class -->
+        <p ng-class="{'highlight': isHighlighted}">This text changes color with <b>ng-class</b>.</p>
+        <button ng-click="toggleHighlight()">Toggle Highlight</button>
+
+        <!-- ng-disabled -->
+        <button ng-click="disableButton()" ng-disabled="buttonDisabled">Click Me</button>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myController', function($scope) {
+            $scope.name = "Mayur";
+            $scope.isVisible = true;
+            $scope.isHighlighted = false;
+            $scope.buttonDisabled = false;
+            $scope.items = ["Item 1", "Item 2", "Item 3"];
+
+            $scope.toggleMessage = function() {
+                $scope.isVisible = !$scope.isVisible;
+            };
+
+            $scope.addItem = function() {
+                if ($scope.newItem) {
+                    $scope.items.push($scope.newItem);
+                    $scope.newItem = "";
+                }
+            };
+
+            $scope.toggleHighlight = function() {
+                $scope.isHighlighted = !$scope.isHighlighted;
+            };
+
+            $scope.disableButton = function() {
+                $scope.buttonDisabled = true;
+            };
+        });
+    </script>
+
+</body>
+</html>
