@@ -8,10 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div ng-app="" ng-init="firstName='Mayur'">
-        <p>Name: <input type="text" ng-model="firstName"></p>
-        <p> You Worte : {{ firstName }} </p>
-        <p ng-bind="firstName"></p>
+    <div ng-app="" ng-init="quantity=4;price=5">
+        <p>quantity: <input type="text" ng-model="quantity"></p>
+        <p>price: <input type="text" ng-model="price"></p>
+        <p> Total Price : {{ quantity * price }} </p>
      
     </div>
    
