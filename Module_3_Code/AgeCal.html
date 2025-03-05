@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator (Years, Months, Days) - AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="ageApp" ng-controller="AgeController">
+
+    <h2>Age Calculator (Years, Months, Days) using AngularJS</h2>
+    
+    <label>Enter Date of Birth: </label>
+    <input type="date" ng-model="dob"> <br><br>
+
+    <button ng-click="calculateAge()">Calculate Age</button> <br><br>
+
+    <h3>Your Age:</h3>
+    <p>Years: {{ age.years }}</p>
+    <p>Months: {{ age.months }}</p>
+    <p>Days: {{ age.days }}</p>
+
+    <script>
+        var app = angular.module("ageApp", []);
+        app.controller("AgeController", function($scope) {
+            $scope.dob = null;
+            $scope.age = { years: 0, months: 0, days: 0 };
+
+            $scope.calculateAge = function() {
+                if ($scope.dob) {
+                    var dob = new Date($scope.dob);
+                    var today = new Date();
+
+                    var years = today.getFullYear() - dob.getFullYear();
+                    var months = today.getMonth() - dob.getMonth();
+                    var days = today.getDate() - dob.getDate();
+
+                    // Adjust for negative days (borrow from previous month)
+                    if (days < 0) {
+                        months--;
+                        var prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                        days += prevMonth.getDate();
+                    }
+
+                    // Adjust for negative months (borrow from previous year)
+                    if (months < 0) {
+                        years--;
+                        months += 12;
+                    }
+
+                    $scope.age.years = years;
+                    $scope.age.months = months;
+                    $scope.age.days = days;
+                } else {
+                    $scope.age = { years: 0, months: 0, days: 0 };
+                }
+            };
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Using AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="additionApp" ng-controller="AdditionController">
+
+    <h2>Addition of Two Numbers using AngularJS</h2>
+    
+    <label>Enter First Number: </label>
+    <input type="number" ng-model="num1"> <br><br>
+
+    <label>Enter Second Number: </label>
+    <input type="number" ng-model="num2"> <br><br>
+
+    <button ng-click="calculateSum()">Add</button> <br><br>
+
+    <h3>Result: {{ sum }}</h3>
+
+    <script>
+        var app = angular.module("additionApp", []);
+        app.controller("AdditionController", function($scope) {
+            $scope.num1 = 0;
+            $scope.num2 = 0;
+            $scope.sum = 0;
+
+            $scope.calculateSum = function() {
+                $scope.sum = parseFloat($scope.num1) + parseFloat($scope.num2);
+            };
+        });
+    </script>
+
+</body>
+</html>
