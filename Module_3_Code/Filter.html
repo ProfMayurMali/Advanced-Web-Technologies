@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Filter Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function ($scope) {
+      $scope.name = "mayur mali";
+      $scope.price = 1500;
+      $scope.searchText = "";
+      $scope.items = [
+        { name: "Laptop", price: 50000 },
+        { name: "Mobile", price: 20000 },
+        { name: "Tablet", price: 15000 },
+        { name: "Headphone", price: 3000 }
+      ];
+    });
+  </script>
+</head>
+<body ng-controller="myCtrl">
+  <h2>AngularJS Filters Example</h2>
+  
+  <p><b>Uppercase Filter:</b> {{ name | uppercase }}</p>
+  <p><b>Currency Filter:</b> {{ price | currency }}</p>
+  
+  <h3>Search in Product List:</h3>
+  <input type="text" ng-model="searchText" placeholder="Search products...">
+  
+  <ul>
+    <li ng-repeat="item in items | filter:searchText">
+      {{ item.name | uppercase }} - {{ item.price | currency }}
+    </li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Background Color Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function ($scope) {
+      $scope.myCol = "green";
+    });
+  </script>
+</head>
+<body ng-controller="myCtrl" ng-style="{'background-color': myCol}">
+  <p>Change the value of the input field:</p>
+  <input style="background-color:{{myCol}}" ng-model="myCol">
+  <p>AngularJS resolves the expression and returns the result.</p>
+  <p>The background color of the page will be whatever you write in the input field.</p>
+</body>
+</html>
