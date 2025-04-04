@@ -1,6 +1,6 @@
 console.log('Node is installed!');
 
-console.log("Hello World")
+console.log("Hello World");
  var y="I am writing my test String.";
  console.log(y);
  console.log(y.substring(1,10));

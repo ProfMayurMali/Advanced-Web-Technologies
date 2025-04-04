@@ -1,5 +1,5 @@
 var fs = require('fs');
-fs.writeFile('input.txt', 'Hii MCA Studnts', function (err) { 
+fs.writeFile('input.txt', 'Hii Raisoni MCA Students', function (err) { 
  if (err)
  console.log(err);
  else
